@@ -1,0 +1,100 @@
+@charset 'utf-8';
+
+//コメント（変換後出てこないコメント）
+/* コメント（変換後に出てくるコメント）*/
+
+// 変数
+$color: rgb(68, 15, 15);
+$color-info: green;
+
+p{
+    background-color: $color;
+}
+
+footer{
+    color: $color;
+}
+
+// 算術演算
+.colum{
+    // Sassのcalc関数は計算結果が出力される
+    width: calc(1200 /12 *1px);
+    // cssにはcalc()関数が存在する（計算結果は出てこない）
+    // calc(1200 / 12 * 1px)
+}
+
+// ネスト
+section {
+    margin: 0 auto 40px;
+  
+    div {
+      background-color:yellow;
+  
+      a {
+        color: violet;
+      }
+    }
+  }
+  
+  // ネスト（親クラスの継承）
+  .feature {
+    margin-bottom: 20px;
+    background: brown;
+  
+    // .feature_text
+    &_text {
+      font-size: .8rem;
+    }
+  }
+
+//   ミックスイン
+//  @mixin　ミックスイン名(){...}
+@mixin common-box{
+    padding: 1em;
+    border: 1px solid #aaa;
+    background-color: #f9f9f9;
+}
+.box{
+    @include common-box;
+}
+
+@mixin example($width){
+    width: $width;
+    margin: 0 auto;
+}
+.layout{
+    @include example(500px);
+}
+
+// ミックスイン名（変数名：デフォルト値）
+// @includeで呼び出す際に、値を受け取らなかった場合に使用される
+// 値が渡されるとデフォルト値が上書きされる
+@mixin example($width: 100%){
+    width: $width;
+    margin: 0 auto;
+}
+.layout{
+    @include example;
+}
+
+@mixin mediaquery(){
+    @media screen and (min-width: 768px){
+     @content;
+    }
+}
+h1{
+    // モバイル版
+    font-size: 1.0rem;
+
+    // デスクトップ版
+    @include mediaquery {
+        color: #000;
+        font-size: 1.5rem;
+    }
+}
+
+  
+  
+  
+  
+  

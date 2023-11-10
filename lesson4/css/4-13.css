@@ -60,20 +60,45 @@ div{
 }
 .sample1{
     animation: zigzag 2s ease 2s 3 normal both;
-    /* アニメーション名
-    animation-name: zigzag;
+    /* この１行は以下の４つのプロパティをまとめたもの */
 
-    /* 時間 */
-    animation-duration: 2s
+    /* 実行するアニメーション名
+    animation-name: zigzag;　（zigzagという名前のアニメーションを実行）
 
-    /* 遅延時間 */
-    animation-delay:0s;
+     アニメーション時間
+    animation-duration: 2s　（２秒かけてアニメーションを実行）
 
-    /* 繰り返し回数 */
-    animetion-iterarion-function */
+    イージング（アニメーション変化の度合）
+    animetion-timing-functhion: ease; (easeで変化する）
 
-    /* 再生前と再生後のスタイルの適用 （both:再生前後　forwards:再生後　backwards:再生前　none:適用しない）*/
+    遅延時間（どれくらい開始を遅らせるか）
+    animation-delay:0s;　（０秒遅らせる＝遅らせない）
+
+    繰り返し回数
+    animetion-iterarion-function: 3;　（３回繰り返す）
+
+    アニメーションの方向
+    animation-direction: normal;
+    値一覧
+    再生：nomal
+    逆再生：reverse
+    折り返し：alternate
+    逆折り返し：alternate-reverse
+
+    再生前と再生後のスタイルの適用
     animation-fill-mode: both;
+    値一覧
+    指定なし：none
+    再生前は@keyframesの０％、再生後は１００％のスタイルをキープ：both
+    再生後は１００％のスタイルをキープ：forwards
+    再生後は０％のスタイルに戻る：backwards 
+    
+    アニメーションの再生・一時停止
+    animateion-play-state paused;
+    値一覧
+    running：再生
+    paused：一時停止
+    */
 }
 
 @keyframes scale-and-color{

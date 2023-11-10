@@ -53,7 +53,7 @@
     }
 }
 .slideshow img{
-    animation: slideshow 12s infinite ba;
+    animation: slideshow 12s infinite;
 }
 
 .slideshow img:nth-child(2){
